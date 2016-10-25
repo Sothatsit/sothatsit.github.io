@@ -1,4 +1,209 @@
+@font-face {
+    font-family: quicksandBook;
+    src: url(/res/quicksand_book.otf);
+}
+
 * {
+    font-family: quicksandBook;
+    color: white;
+    
     margin: 0px;
     padding: 0px;
+}
+
+/*
+ *  --------------------
+ *  Make links look nice
+ *  --------------------
+ */
+
+a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: rgba(200, 200, 200, 1);
+}
+
+/*
+ *  -------------------------------
+ *  Take up full page, some styling
+ *  -------------------------------
+ */
+
+body {
+    background-color: rgba(70, 70, 70, 1);
+    
+    font-size: 62.5%;
+    
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+/*
+ *  ---------------
+ *  Position canvas
+ *  ---------------
+ */
+
+canvas {
+    position: fixed;
+    z-index: -1;
+    
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    
+    opacity: 0.8;
+}
+
+/*
+ *  ------------------
+ *  Centre the content
+ *  ------------------ 
+ */
+
+#outer {
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#content {
+    background-color: rgba(70, 70, 70, 0.8);
+    text-align: center;
+    
+    padding: 10px;
+    border-radius: 10px;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    max-width: 600px;
+    height: auto;
+}
+
+/*
+ *  ------------------
+ *  Style text content
+ *  ------------------
+ */
+
+.title {
+    font-size: 6em;
+    text-align: center;
+}
+
+.content {
+    font-size: 1.5em;
+}
+
+.underlined {
+    text-decoration: underline;
+}
+
+.inline {
+    vertical-align: top;
+}
+
+/*
+ *  -------------------
+ *  Style project icons
+ *  -------------------
+ */
+
+.icon {
+    width: auto;
+    max-height: 100px;
+    
+    -webkit-transition: max-height 0.4s;
+    transition: max-height 0.4s;
+}
+
+.icon:hover {
+    max-height: 90px;
+    
+    -webkit-transition: max-height 0.4s;
+    transition: max-height 0.4s;
+}
+
+/*
+ *  ---------------
+ *  Layout projects
+ *  ---------------
+ */
+
+table {
+    width: 100%;
+}
+
+tr {
+    width: 100%;
+}
+
+td {
+    vertical-align: middle;
+    text-align: center;
+    
+    width: 33.333%;
+}
+
+/*
+ *  ---------------------------------
+ *  Make fancy name hover text bubble
+ *  ---------------------------------
+ */
+
+#hover-name {
+    display: inline;
+}
+
+#hidden-name {
+    position: absolute;
+    
+    padding: 5px;
+    border-radius: 5px;
+    
+    background-color: rgba(255, 255, 255, 0.8);
+    
+    font-size: 1.2em;
+    color: rgba(70, 70, 70, 1);
+    
+    text-align: right;
+    opacity: 0;
+    
+    -webkit-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+#hidden-name:after {
+    content: "";
+
+    position: absolute;
+    display:block;
+    
+    bottom: -10px;
+    right: 7px;
+    width: 0;
+    
+    border-width: 10px 7px 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.8) transparent;
+}
+
+.hidden-name-visible {
+    opacity: 1 !important;
+    
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
 }
