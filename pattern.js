@@ -1,10 +1,10 @@
-const CONTENT_BACKGROUND_COLOUR = "rgba(70, 70, 70, 0.6)",
+let CONTENT_BACKGROUND_COLOUR = "rgba(70, 70, 70, 0.6)",
       
       SPACING = 30,
       RADIUS = 10,
       
       WAVELENGTH = 400,
-      FREQUENCY = 0.55,
+      FREQUENCY = 0.2,
       
       DROP_MOVEMENT = 20,
       DROP_MOVEMENT_DISTANCE_MULTIPLIER = 1 / 800,
