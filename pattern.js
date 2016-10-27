@@ -108,7 +108,7 @@ function Pattern(canvas) {
     
     this.stopLoop = function() {
         this.loopRunning = false;
-    }
+    }.bind(this);
 }
 
 function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
