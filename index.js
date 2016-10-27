@@ -1,32 +1,49 @@
 window.onload = load;
 window.onresize = resize;
 
+let pattern;
+
+function findWindowSize() {
+    return {
+        width: window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth,
+        height: window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight
+    };
+}
+
 function load() {
-    const hoverName = document.getElementById("hover-name");
+    const hoverName = document.getElementById("hover-name"),
+          hiddenName = document.getElementById("hidden-name");
     
-    hoverName.onmouseout = makeHoverNameInvisible;
-    hoverName.onmouseover = makeHoverNameVisible
+    hoverName.onmouseout = function() { hiddenName.className = ""; };
+    hoverName.onmouseover = function() { hiddenName.className = "hidden-name-visible"; };
+    
+    moveHoverName();
+    
+    // Defer rendering pattern until page loaded
+    setTimeout(loadPattern, 0);
+}
+
+function loadPattern() {
+    pattern = new Pattern(document.getElementById("canvas"));
+    
+    const windowSize = findWindowSize();
+    
+    pattern.resize(windowSize.width, windowSize.height);
+    pattern.startLoop();
 }
 
 function resize() {
     moveHoverName();
     
-    resizePattern();
-}
-
-function makeHoverNameInvisible() {
-    const hiddenName = document.getElementById("hidden-name");
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth,
+          windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
     
-    hiddenName.className = "";
-}
-
-function makeHoverNameVisible() {
-    const hoverName = document.getElementById("hover-name"),
-          hiddenName = document.getElementById("hidden-name");
+    pattern.resize(windowWidth, windowHeight);
     
-    hiddenName.className = "hidden-name-visible";
+    const outer = document.getElementById("outer");
     
-    moveHoverName();
+    outer.style.width = windowWidth + "px";
+    outer.style.height = windowHeight + "px";
 }
 
 function moveHoverName() {
