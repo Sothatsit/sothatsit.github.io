@@ -16,51 +16,51 @@ if (window.performance.now) {
 
 function Pattern(canvas) {
     // Settings
-    
+
     this.spacing = 30;
     this.radius = 10;
-    
+
     this.wavelength = 400;
     this.frequency = 0.2;
-    
+
     this.dropMovement = 20;
     this.dropMovementDistanceMultiplier = 1 / 800;
-    
+
     this.dropSizeCosMultiplier = 0.2;
-    
+
     this.fadeIn = true;
     this.fadeInTime = 0.5;
-    
+
     // Running values
-    
+
     this.canvas = canvas;
     this.context = canvas.getContext('2d');
-    
+
     this.startTime = getTime();
     this.fadedIn = false;
-    
+
     this.opacity = 1;
-    
+
     this.loopRunning = false;
-    
+
     // Repaint pattern
-    
+
     this.repaint = function() {
         const width = this.canvas.width,
               height = this.canvas.height,
-              
+
               centreX = width / 2,
               centreY = height / 2;
-        
+
         this.context.clearRect(0, 0, width, height);
-        
+
         if(this.fadeIn && !this.fadedIn) {
             this.opacity = Math.min(1, (getTime() - this.startTime) / this.fadeInTime);
             this.fadedIn = (this.opacity == 1);
         }
-        
+
         this.context.globalAlpha = this.opacity;
-        
+
         const timeOffset = (getTime() * this.frequency) * TAU,
 
               dotsX = Math.floor(width / this.spacing) - 1,
@@ -78,18 +78,18 @@ function Pattern(canvas) {
             }
         }
     }.bind(this);
-    
+
     // Resize the canvas
-    
+
     this.resize = function(width, height) {
         this.canvas.width = width;
         this.canvas.height = height;
-        
+
         this.repaint();
     }.bind(this);
-    
+
     // Loop repainting every animation frame
-    
+
     this.startLoop = function() {
         if(!this.loopRunning) {
             this.loopRunning = true;
@@ -97,15 +97,15 @@ function Pattern(canvas) {
             this.loop();
         }
     }.bind(this);
-    
+
     this.loop = function() {
         if(this.loopRunning) {
             this.repaint();
-            
+
             window.requestAnimationFrame(this.loop);
         }
     }.bind(this);
-    
+
     this.stopLoop = function() {
         this.loopRunning = false;
     }.bind(this);
@@ -114,10 +114,10 @@ function Pattern(canvas) {
 function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
     const relX = centreX - x,
           relY = centreY - y,
-          
+
           angle = Math.atan2(relY, relX),
           distanceFromCentre = Math.sqrt(relX * relX + relY * relY),
-          
+
           distanceOffset = (distanceFromCentre / pattern.wavelength) * TAU,
           cosTime = Math.cos(timeOffset + distanceOffset),
           sinTime = -Math.sin(timeOffset + distanceOffset),
@@ -133,7 +133,7 @@ function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
     if(dropDistance > dropRadius / 2) {
         const smallRadius = dropRadius / 2,
               dropAngle = (sinTime < 0 ? angle + Math.PI : angle);
-        
+
         drawDrop(pattern.context, x + dropOffsetX, y + dropOffsetY, dropRadius, smallRadius, dropAngle, dropDistance);
     } else {
         drawCircle(pattern.context, x + dropOffsetX, y + dropOffsetY, dropRadius);
@@ -144,7 +144,7 @@ function drawCircle(context, x, y, radius) {
     context.beginPath();
     context.arc(x, y, radius, 0, TAU, false);
     context.closePath();
-    
+
     context.fill();
 }
 
@@ -153,18 +153,18 @@ function drawDrop(context, x, y, bigRadius, smallRadius, angle, distance) {
 
         fromX = x - Math.cos(angle) * distance,
         fromY = y - Math.sin(angle) * distance;
-    
+
     context.beginPath();
-    
-    context.arc(fromX, fromY, smallRadius, 
-            angle - angleDif - HALF_PI, 
+
+    context.arc(fromX, fromY, smallRadius,
+            angle - angleDif - HALF_PI,
             angle + angleDif + HALF_PI, true);
 
-    context.arc(x, y, bigRadius, 
-            angle + angleDif + HALF_PI, 
+    context.arc(x, y, bigRadius,
+            angle + angleDif + HALF_PI,
             angle - angleDif - HALF_PI, true);
-    
+
     context.closePath();
-    
+
     context.fill();
 }
