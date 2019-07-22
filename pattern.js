@@ -69,7 +69,7 @@ function Pattern(canvas) {
               offsetX = (width - (dotsX - 1) * this.spacing) / 2,
               offsetY = (height - (dotsY - 1) * this.spacing) / 2;
 
-        var positions = [];
+        const positions = [];
         for(let i = 0; i < dotsX; i++) {
             positions.push(new Array(dotsY));
         }
@@ -79,33 +79,12 @@ function Pattern(canvas) {
                 let screenX = offsetX + x * this.spacing - 4 * this.spacing,
                     screenY = offsetY + y * this.spacing - 4 * this.spacing;
 
-                // drawDot(this, centreX, centreY, timeOffset, screenX, screenY);
                 positions[x][y] = calcDotPosition(this, centreX, centreY, timeOffset, screenX, screenY);
             }
         }
 
-        pattern.context.strokeStyle = "black";
-        for(let x = 0; x < dotsX; x++) {
-            for(let y = 0; y < dotsY; y++) {
-                let pos = positions[x][y];
-
-                if (x + 1 < dotsX) {
-                    let pos2 = positions[x + 1][y];
-                    this.context.beginPath();
-                    this.context.moveTo(pos[0], pos[1]);
-                    this.context.lineTo(pos2[0], pos2[1]);
-                    this.context.stroke();
-                }
-
-                if (y + 1 < dotsY) {
-                    let pos2 = positions[x][y + 1];
-                    this.context.beginPath();
-                    this.context.moveTo(pos[0], pos[1]);
-                    this.context.lineTo(pos2[0], pos2[1]);
-                    this.context.stroke();
-                }
-            }
-        }
+        drawMesh(this, positions);
+        // drawDots(this, centreX, centreY, timeOffset, positions);
     }.bind(this);
 
     // Resize the canvas
@@ -140,6 +119,41 @@ function Pattern(canvas) {
     }.bind(this);
 }
 
+function drawDots(pattern, centreX, centreY, timeOffset, positions) {
+    for(let x = 0; x < positions.length; x++) {
+        for(let y = 0; y < positions[x].length; y++) {
+            let pos = positions[x][y];
+
+            drawDot(pattern, centreX, centreY, timeOffset, pos[0], pos[1]);
+        }
+    }
+}
+
+function drawMesh(pattern, positions) {
+    pattern.context.strokeStyle = "black";
+    for(let x = 0; x < positions.length; x++) {
+        for(let y = 0; y < positions[x].length; y++) {
+            let pos = positions[x][y];
+
+            if (x + 1 < positions.length) {
+                let posX = positions[x + 1][y];
+                pattern.context.beginPath();
+                pattern.context.moveTo(pos[0], pos[1]);
+                pattern.context.lineTo(posX[0], posX[1]);
+                pattern.context.stroke();
+            }
+
+            if (y + 1 < positions[x].length) {
+                let posY = positions[x][y + 1];
+                pattern.context.beginPath();
+                pattern.context.moveTo(pos[0], pos[1]);
+                pattern.context.lineTo(posY[0], posY[1]);
+                pattern.context.stroke();
+            }
+        }
+    }
+}
+
 function calcDotPosition(pattern, centreX, centreY, timeOffset, x, y) {
     const relX = centreX - x,
           relY = centreY - y,
@@ -149,7 +163,6 @@ function calcDotPosition(pattern, centreX, centreY, timeOffset, x, y) {
 
           distanceOffset = (distanceFromCentre / pattern.wavelength) * TAU,
           cosTime = Math.cos(timeOffset + distanceOffset),
-          sinTime = -Math.sin(timeOffset + distanceOffset),
 
           dropMovement = pattern.dropMovement * Math.sqrt(distanceFromCentre) * pattern.dropMovementDistanceMultiplier,
           dropOffsetX = Math.cos(angle) * cosTime * dropMovement,
@@ -159,7 +172,6 @@ function calcDotPosition(pattern, centreX, centreY, timeOffset, x, y) {
 }
 
 function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
-    // TODO : Use calcDotPosition in here
     const relX = centreX - x,
           relY = centreY - y,
 
@@ -170,10 +182,11 @@ function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
           cosTime = Math.cos(timeOffset + distanceOffset),
           sinTime = -Math.sin(timeOffset + distanceOffset),
 
-          dropMovement = pattern.dropMovement * (1 + distanceFromCentre * pattern.dropMovementDistanceMultiplier),
-          dropOffsetX = Math.cos(angle) * cosTime * dropMovement,
-          dropOffsetY = Math.sin(angle) * cosTime * dropMovement,
+          dropPosition = calcDotPosition(pattern, centreX, centreY, timeOffset, x, y),
+          dropX = dropPosition[0],
+          dropY = dropPosition[1],
           dropDistance = Math.abs(15 * sinTime),
+
           dropRadius = pattern.radius * (1 + -1 * cosTime * pattern.dropSizeCosMultiplier);
 
     pattern.context.fillStyle = "rgba(50, 50, 50, 1)";
@@ -182,9 +195,9 @@ function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
         const smallRadius = dropRadius / 2,
               dropAngle = (sinTime < 0 ? angle + Math.PI : angle);
 
-        drawDrop(pattern.context, x + dropOffsetX, y + dropOffsetY, dropRadius, smallRadius, dropAngle, dropDistance);
+        drawDrop(pattern.context, dropX, dropY, dropRadius, smallRadius, dropAngle, dropDistance);
     } else {
-        drawCircle(pattern.context, x + dropOffsetX, y + dropOffsetY, dropRadius);
+        drawCircle(pattern.context, dropX, dropY, dropRadius);
     }
 }
 
