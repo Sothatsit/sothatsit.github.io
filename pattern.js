@@ -21,10 +21,10 @@ function Pattern(canvas) {
     this.radius = 10;
 
     this.wavelength = 400;
-    this.frequency = 0.2;
+    this.frequency = 0.05;
 
-    this.dropMovement = 20;
-    this.dropMovementDistanceMultiplier = 1 / 800;
+    this.dropMovement = 24;
+    this.dropMovementDistanceMultiplier = 0.08;
 
     this.dropSizeCosMultiplier = 0.2;
 
@@ -46,11 +46,11 @@ function Pattern(canvas) {
     // Repaint pattern
 
     this.repaint = function() {
-        const width = this.canvas.width,
-              height = this.canvas.height,
+        const width = this.canvas.width + 8 * this.spacing,
+              height = this.canvas.height + 8 * this.spacing,
 
-              centreX = width / 2,
-              centreY = height / 2;
+              centreX = width / 2 - 4 * this.spacing,
+              centreY = height / 2 - 4 * this.spacing;
 
         this.context.clearRect(0, 0, width, height);
 
@@ -69,12 +69,41 @@ function Pattern(canvas) {
               offsetX = (width - (dotsX - 1) * this.spacing) / 2,
               offsetY = (height - (dotsY - 1) * this.spacing) / 2;
 
+        var positions = [];
+        for(let i = 0; i < dotsX; i++) {
+            positions.push(new Array(dotsY));
+        }
+
         for(let x = 0; x < dotsX; x++) {
             for(let y = 0; y < dotsY; y++) {
-                let screenX = offsetX + x * this.spacing,
-                    screenY = offsetY + y * this.spacing;
+                let screenX = offsetX + x * this.spacing - 4 * this.spacing,
+                    screenY = offsetY + y * this.spacing - 4 * this.spacing;
 
-                drawDot(this, centreX, centreY, timeOffset, screenX, screenY);
+                // drawDot(this, centreX, centreY, timeOffset, screenX, screenY);
+                positions[x][y] = calcDotPosition(this, centreX, centreY, timeOffset, screenX, screenY);
+            }
+        }
+
+        pattern.context.strokeStyle = "black";
+        for(let x = 0; x < dotsX; x++) {
+            for(let y = 0; y < dotsY; y++) {
+                let pos = positions[x][y];
+
+                if (x + 1 < dotsX) {
+                    let pos2 = positions[x + 1][y];
+                    this.context.beginPath();
+                    this.context.moveTo(pos[0], pos[1]);
+                    this.context.lineTo(pos2[0], pos2[1]);
+                    this.context.stroke();
+                }
+
+                if (y + 1 < dotsY) {
+                    let pos2 = positions[x][y + 1];
+                    this.context.beginPath();
+                    this.context.moveTo(pos[0], pos[1]);
+                    this.context.lineTo(pos2[0], pos2[1]);
+                    this.context.stroke();
+                }
             }
         }
     }.bind(this);
@@ -111,7 +140,26 @@ function Pattern(canvas) {
     }.bind(this);
 }
 
+function calcDotPosition(pattern, centreX, centreY, timeOffset, x, y) {
+    const relX = centreX - x,
+          relY = centreY - y,
+
+          angle = Math.atan2(relY, relX),
+          distanceFromCentre = Math.sqrt(relX * relX + relY * relY),
+
+          distanceOffset = (distanceFromCentre / pattern.wavelength) * TAU,
+          cosTime = Math.cos(timeOffset + distanceOffset),
+          sinTime = -Math.sin(timeOffset + distanceOffset),
+
+          dropMovement = pattern.dropMovement * Math.sqrt(distanceFromCentre) * pattern.dropMovementDistanceMultiplier,
+          dropOffsetX = Math.cos(angle) * cosTime * dropMovement,
+          dropOffsetY = Math.sin(angle) * cosTime * dropMovement;
+
+    return [x + dropOffsetX, y + dropOffsetY];
+}
+
 function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
+    // TODO : Use calcDotPosition in here
     const relX = centreX - x,
           relY = centreY - y,
 
@@ -128,7 +176,7 @@ function drawDot(pattern, centreX, centreY, timeOffset, x, y) {
           dropDistance = Math.abs(15 * sinTime),
           dropRadius = pattern.radius * (1 + -1 * cosTime * pattern.dropSizeCosMultiplier);
 
-    pattern.context.fillStyle = "rgba(10, 138, 255, " + ((-cosTime + 3) / 4) + ")";
+    pattern.context.fillStyle = "rgba(50, 50, 50, 1)";
 
     if(dropDistance > dropRadius / 2) {
         const smallRadius = dropRadius / 2,
