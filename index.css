@@ -102,6 +102,7 @@ canvas {
  */
 
 .title {
+    margin-top: 6px;
     font-size: 6em;
     text-align: center;
 }
@@ -158,6 +159,10 @@ td {
     text-align: center;
 
     width: 33.333%;
+}
+
+#icons-row td {
+    padding-top: 10px;
 }
 
 /*

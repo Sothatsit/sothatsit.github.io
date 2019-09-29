@@ -21,7 +21,7 @@ function Pattern(canvas) {
     this.radius = 10;
 
     this.wavelength = 400;
-    this.frequency = 0.05;
+    this.frequency = 0.035;
 
     this.dropMovement = 24;
     this.dropMovementDistanceMultiplier = 0.08;
@@ -130,7 +130,7 @@ function drawDots(pattern, centreX, centreY, timeOffset, positions) {
 }
 
 function drawMesh(pattern, positions) {
-    pattern.context.strokeStyle = "black";
+    pattern.context.strokeStyle = "#222222";
     for(let x = 0; x < positions.length; x++) {
         for(let y = 0; y < positions[x].length; y++) {
             let pos = positions[x][y];
