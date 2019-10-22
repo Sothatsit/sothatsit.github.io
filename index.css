@@ -127,17 +127,25 @@ canvas {
 
 .icon {
     width: auto;
+    padding: 10px;
     max-height: 100px;
 
-    -webkit-transition: max-height 0.4s;
-    transition: max-height 0.4s;
+    -webkit-transition: max-height 0.2s;
+    transition: max-height 0.2s, padding 0.2s;
 }
 
-.icon:hover {
-    max-height: 90px;
+td:hover .icon {
+    padding: 0;
+    max-height: 120px;
 
-    -webkit-transition: max-height 0.4s;
-    transition: max-height 0.4s;
+    -webkit-transition: max-height 0.2s;
+    transition: max-height 0.2s, padding 0.2s;
+}
+
+td a {
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /*
