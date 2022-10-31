@@ -1,68 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>Sothatsit</title>
+<head>
+    <title>Paddy Lamont</title>
+    <style>
+        #content {
+            display: block;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20em;
+        }
 
+        #bio {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+            margin: 2em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #bio .left {
+            flex: 0;
+            padding-right: 2em;
+        }
+        #bio .right {
+            flex: 1;
+        }
+        #links a {
+            text-decoration: none;
+        }
+        #links img {
+            width: 2.4em;
+            height: 2.4em;
+            margin-right: 0.4em;
+        }
 
-        <link rel="stylesheet" href="index.css" />
-        <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
+        .project {
+            display: flex;
+            width: 100%;
+        }
+        .project .left {
+            flex: 1;
+            padding-right: 2em;
+        }
+        .project .right {
+            flex: 0;
+        }
+        .project img {
+            width: auto;
+            height: 4em;
+        }
 
-        <script type='text/javascript' src="pattern.js"></script>
-        <script type='text/javascript' src="index.js"></script>
-    </head>
-    <body>
-        <canvas id="canvas"></canvas>
+        p.paper-name {
+            margin-bottom: 0.4em;
+        }
+        p.paper-authors {
+            margin-top: 0;
+            color: #333333;
+        }
 
-        <div id="hidden-name">
-            (Or Paddy Lamont in the real world)
+        h1 {
+            color: #333333;
+            font-weight: normal;
+            margin-top: 0;
+            margin-bottom: 0.5em;
+        }
+        h2 {
+            color: #888888;
+            font-weight: normal;
+            font-style: italic;
+            font-size: 1.4em;
+            margin-top: 0;
+            margin-bottom: 1em;
+        }
+        li {
+            margin-bottom: 1.4em;
+        }
+
+        #photo-of-me {
+            border-radius: 50%;
+            height: 12em;
+            width: 12em;
+        }
+        .paper-year {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="bio">
+        <div class="left">
+            <img id="photo-of-me" src="assets/me.png" alt="Picture of me" />
         </div>
-
-        <div id="outer">
-            <div id="middle">
-                <div id="content">
-                    <div class="title">
-                        Hi, I'm <a href="https://github.com/Sothatsit" id="hover-name">Sothatsit</a>!
-                    </div>
-
-                    <div class="content"><br>I'm a student who likes tinkering with programming projects.</div>
-
-                    <div class="content underlined"><br><br>Some stuff i've made</div>
-
-                    <div class="content"><br><br>
-                        <table>
-                            <tr id="names-row">
-                                <td>Minecraft server plugins</td>
-                                <td>Royal Ur</td>
-                                <td>Github Projects</td>
-                            </tr>
-                            <tr id="icons-row">
-                                <td>
-                                    <a href="https://www.spigotmc.org/resources/authors/sothatsit.2764/">
-                                        <img class="inline icon" src="res/spigot-icon.png"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="http://royalur.net/">
-                                        <img class="inline icon" src="res/royal-ur-icon.png"/>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a href="https://github.com/Sothatsit?tab=repositories">
-                                        <img class="inline icon" src="res/github-icon.svg"/>
-                                    </a>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="content underlined"><br><br><br>Contact Me</div>
-                    <div class="content"><br>
-                        You can find me at
-                        <a href="mailto:padraiglamont@gmail.com">padraiglamont@gmail.com</a>
-                    </div>
-                </div>
+        <div class="right">
+            <h1>Hi, I'm Padraig Lamont</h1>
+            <h2>I've always enjoyed programming, and so I tend to do it a lot.</h2>
+            <div id="links">
+                <a href="https://twitter.com/paddy_lamont">
+                    <img src="assets/twitter.svg" alt="Twitter Icon" />
+                </a>
+                <a href="https://github.com/Sothatsit">
+                    <img src="assets/github.svg" alt="GitHub Icon" />
+                </a>
+                <a href="mailto:padraiglamont@gmail.com">
+                    <img src="assets/email.svg" alt="Email Icon" />
+                </a>
             </div>
         </div>
-    </body>
+    </div>
+    <p>
+        I'm currently a student at UWA. A particular interest of mine is creating
+        and releasing diverse projects. I am also very interested in the nature of human
+        knowledge and memory. Some of the things I've done are listed below.
+    </p>
+    <h2 id="projects">Notable Projects</h2>
+    <ul>
+        <li>
+            <div class="project">
+                <div class="left">
+                    I created <a href="https://royalur.net">RoyalUr.net</a>, a website where
+                    people can play the Royal Game of Ur. The Royal Game of Ur is an ancient
+                    Mesopotamian racing board game, that dates back to 2500BC. It is
+                    considered to be a predecessor to Backgammon. As of writing, there
+                    are about 400 games played every day on RoyalUr.net. This
+                    project is <a href="https://github.com/Sothatsit/RoyalUrClient">open-source</a>.
+                </div>
+                <div class="right">
+                    <a href="https://royalur.net">
+                        <img src="assets/royalur.net.svg" alt="RoyalUr.net Logo" />
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="project">
+                <div class="left">
+                    I was a part of creating, and I continue to maintain,
+                    <a href="https://themisinformationgame.github.io">The Misinformation Game</a>,
+                    a social media simulator built to study people's behaviour when they
+                    interact with social media.
+                    This project is also
+                    <a href="https://github.com/TheMisinformationGame/MisinformationGame">open-source</a>.
+                </div>
+                <div class="right">
+                    <a href="https://themisinformationgame.github.io">
+                        <img src="assets/misinformation-game.png" alt="The Misinformation Game Logo" />
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="project">
+                <div class="left">
+                    I am currently working on
+                    <a href="https://github.com/TycheLibrary/Tyche">Tyche</a>.
+                    Tyche is a Python library that allows the modelling of
+                    beliefs as knowledge bases of entities, with probabilistic beliefs
+                    about the entities, and probabilistic relationships between them.
+                    It contains functionality to query these belief models using
+                    <a href="https://arxiv.org/abs/2108.13036">aleatoric description logic</a>.
+                    It also contains a novel approach to learning the probabilities within
+                    belief models based upon observations, which has showed promise. It's a
+                    bit technical, but I really like it.
+                </div>
+                <div class="right">
+                    <a href="https://github.com/TycheLibrary/Tyche">
+                        <img src="assets/tyche.png" alt="Tyche Logo" />
+                    </a>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="project">
+                <div class="left">
+                    I am also currently working with a team on
+                    <a href="https://github.com/PubMedConnections/PubMedConnections">PubMed Connections</a>.
+                    PubMed Connections is a website to allow researchers to explore the relationships
+                    between articles, authors, and journals in
+                    <a href="https://pubmed.ncbi.nlm.nih.gov/">PubMed</a>, through visualising
+                    them in a network.
+                </div>
+                <div class="right">
+                    <a href="https://github.com/PubMedConnections/PubMedConnections">
+                        <img src="assets/pmc.svg" alt="PubMed Connections Logo" />
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <h2 id="papers">Papers</h2>
+    <ul>
+        <li>
+            <p class="paper-name">
+                <span class="paper-year">August, 2022:</span>
+                <a href="https://arxiv.org/abs/2208.09838">
+                    Tyche: A library for probabilistic reasoning and belief modelling in Python
+                </a>
+            </p>
+            <p class="paper-authors">
+                Padraig X. Lamont
+            </p>
+        </li>
+        <li>
+            <p class="paper-name">
+                <span class="paper-year">July, 2022:</span>
+                <a href="https://psyarxiv.com/628wc/">
+                    The (Mis)Information Game: A Social Media Simulator
+                </a>
+            </p>
+            <p class="paper-authors">
+                Lucy H. Butler, Padraig X. Lamont, Dean B. Law Yim Wan,
+                Toby Prike, Mehwish Nasim, Bradley Walker, Nicolas Fay,
+                & Ullrich K. H. Ecker
+            </p>
+        </li>
+    </ul>
+</div>
+</body>
 </html>
