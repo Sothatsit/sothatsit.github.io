@@ -4,9 +4,9 @@
     <title>Padraig X. Lamont</title>
     <meta name="description" content="I'm the creator of RoyalUr.net and projects related to social-media research, logic, and knowledge bases. I'm a big fan of programming.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -23,28 +23,43 @@
         }
     </script>
     <style>
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
         #content {
             display: block;
+            width: 100%;
             max-width: 760px;
             margin-left: auto;
             margin-right: auto;
             margin-bottom: 20em;
+            padding: 1em;
+            box-sizing: border-box;
         }
 
         #bio {
             display: flex;
-            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 1em;
+            column-gap: 1em;
             max-width: 600px;
-            margin: 2em;
-            margin-left: auto;
-            margin-right: auto;
+            margin: 0 auto;
+            box-sizing: border-box;
         }
         #bio .left {
             flex: 0;
-            padding-right: 2em;
+        }
+        #photo-of-me {
+            border-radius: 50%;
+            height: 200px;
+            width: 200px;
         }
         #bio .right {
             flex: 1;
+            min-width: 200px;
         }
         #links a {
             text-decoration: none;
@@ -97,11 +112,6 @@
             margin-bottom: 1.4em;
         }
 
-        #photo-of-me {
-            border-radius: 50%;
-            height: 12em;
-            width: 12em;
-        }
         .paper-year {
             font-weight: bold;
         }
