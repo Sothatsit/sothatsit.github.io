@@ -1,0 +1,177 @@
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#content {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20em;
+    padding: 1em;
+    box-sizing: border-box;
+}
+
+#bio, .small-bio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 1em;
+    column-gap: 1em;
+    box-sizing: border-box;
+}
+#bio {
+    justify-content: center;
+    max-width: 580px;
+    margin: 0 auto;
+}
+.small-bio {
+    justify-content: flex-start;
+}
+#bio .left,
+.small-bio .left {
+    flex: 0;
+}
+#photo-of-me,
+#icon-of-me {
+    border-radius: 50%;
+}
+#photo-of-me {
+    height: 180px;
+    width: 180px;
+}
+.small-bio #photo-of-me {
+    padding-top: 16px;
+    height: 140px;
+    width: 140px;
+}
+#icon-of-me {
+    height: 40px;
+    width: 40px;
+}
+#bio .right,
+.small-bio .right{
+    flex: 1;
+    min-width: 200px;
+}
+#links a {
+    text-decoration: none;
+}
+#links img {
+    width: 2.4em;
+    height: 2.4em;
+    margin-right: 0.4em;
+}
+
+.project {
+    display: block;
+}
+.project .project-logo {
+    float: right;
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+}
+.project .project-logo img {
+    width: auto;
+    height: 4em;
+}
+
+p.paper-name {
+    margin-bottom: 0.4em;
+}
+p.paper-authors {
+    margin-top: 0;
+    color: #333333;
+}
+
+h1, h2 {
+    color: #333333;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+h1 {
+    font-size: 1.8rem;
+    letter-spacing: 0.015em;
+}
+h2 {
+    font-size: 1.6rem;
+}
+.home h2 {
+    color: #888888;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+.small-bio h2 {
+    margin-bottom: 0.2em;
+}
+.small-bio p {
+    margin-top: 0;
+}
+
+p {
+    line-height: 1.6em;
+}
+.italic {
+    font-style: italic;
+}
+.bold {
+    font-weight: bold;
+}
+li {
+    margin-bottom: 1.4em;
+}
+p.wip {
+    display: block;
+    padding: 0.8rem 1rem;
+    border-radius: 0.4rem;
+    border: 1px solid #006be2;
+    background-color: #f0f6fc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.paper-year {
+    font-weight: bold;
+}
+
+#articles-header {
+    font-size: 22px;
+    font-style: italic;
+    letter-spacing: 0.015em;
+    border-bottom: 1px solid #333333;
+    margin-bottom: 1em;
+    padding: 0.4em;
+    padding-top: 0;
+}
+#articles-header a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-content: center;
+    text-decoration: none;
+}
+#articles-header a span {
+    color: #444444;
+    text-decoration: none;
+    padding-left: 0.5em;
+    align-self: center;
+}
+.article-date {
+    color: #666666;
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: -0.3em;
+}
+
+#about-author {
+    display: block;
+    border-top: 1px solid #333333;
+    padding: 1em;
+}

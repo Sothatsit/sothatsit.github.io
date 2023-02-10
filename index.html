@@ -14,9 +14,9 @@
     <meta name="twitter:url" content="https://paddy-lamont.com/assets/me.png" />
     <meta name="twitter:card" content="summary" />
 
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -32,97 +32,7 @@
             "nationality": "Australian"
         }
     </script>
-    <style>
-        html, body {
-            width: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        #content {
-            display: block;
-            width: 100%;
-            max-width: 760px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 20em;
-            padding: 1em;
-            box-sizing: border-box;
-        }
-
-        #bio {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            row-gap: 1em;
-            column-gap: 1em;
-            max-width: 580px;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-        #bio .left {
-            flex: 0;
-        }
-        #photo-of-me {
-            border-radius: 50%;
-            height: 200px;
-            width: 200px;
-        }
-        #bio .right {
-            flex: 1;
-            min-width: 200px;
-        }
-        #links a {
-            text-decoration: none;
-        }
-        #links img {
-            width: 2.4em;
-            height: 2.4em;
-            margin-right: 0.4em;
-        }
-
-        .project {
-            display: block;
-        }
-        .project .project-logo {
-            float: right;
-            padding-left: 1em;
-            padding-bottom: 0.5em;
-        }
-        .project .project-logo img {
-            width: auto;
-            height: 4em;
-        }
-
-        p.paper-name {
-            margin-bottom: 0.4em;
-        }
-        p.paper-authors {
-            margin-top: 0;
-            color: #333333;
-        }
-
-        h1 {
-            color: #333333;
-            font-weight: normal;
-            margin-top: 0;
-            margin-bottom: 0.5em;
-        }
-        h2 {
-            color: #888888;
-            font-weight: normal;
-            font-style: italic;
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 1em;
-        }
-        li {
-            margin-bottom: 1.4em;
-        }
-
-        .paper-year {
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/index.css" />
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -135,10 +45,10 @@
 </script>
 
 <body>
-<div id="content">
+<div id="content" class="home">
     <div id="bio">
         <div class="left">
-            <img id="photo-of-me" src="assets/me.png" alt="Picture of me"
+            <img id="photo-of-me" src="/assets/me.png" alt="Picture of me"
                  width="530" height="530" />
         </div>
         <div class="right">
@@ -146,32 +56,40 @@
             <h2>I've always enjoyed programming, and so I tend to do it a lot.</h2>
             <div id="links">
                 <a rel="me" href="https://sigmoid.social/@paddy">
-                    <img src="assets/mastodon.svg" alt="Mastodon Icon" />
+                    <img src="/assets/mastodon.svg" alt="Mastodon Icon" />
                 </a>
                 <a rel="me" href="https://twitter.com/paddy_lamont">
-                    <img src="assets/twitter.svg" alt="Twitter Icon" />
+                    <img src="/assets/twitter.svg" alt="Twitter Icon" />
                 </a>
                 <a rel="me" href="https://github.com/Sothatsit">
-                    <img src="assets/github.svg" alt="GitHub Icon" />
+                    <img src="/assets/github.svg" alt="GitHub Icon" />
                 </a>
                 <a rel="me" href="mailto:padraiglamont@gmail.com">
-                    <img src="assets/email.svg" alt="Email Icon" />
+                    <img src="/assets/email.svg" alt="Email Icon" />
                 </a>
             </div>
         </div>
     </div>
+
     <p>
-        I'm currently a student at UWA. I am passionate about building high-quality
-        and impactful software projects in diverse areas. I am also very interested
-        in the nature of human knowledge and memory. Some projects I'm proud of are
-        listed below!
+        I am passionate about building high-quality and impactful software projects
+        in diverse areas. I am also very interested in the nature of human knowledge
+        and memory. Some articles and projects that I'm proud of are listed below!
     </p>
+
+    <h2 id="articles">Articles</h2>
+    <ul>
+        <li>10th February, 2023: <a href="/articles/better-ide">
+            Building an AI-driven IDE using heavy-hitting old and new AI
+        </a></li>
+    </ul>
+
     <h2 id="projects">Notable Projects</h2>
     <ul>
         <li>
             <div class="project">
                 <a class="project-logo" href="https://royalur.net">
-                    <img src="assets/royalur.net.svg" alt="RoyalUr.net Logo"
+                    <img src="/assets/royalur.net.svg" alt="RoyalUr.net Logo"
                          width="16" height="16" />
                 </a>
 
@@ -187,7 +105,7 @@
         <li>
             <div class="project">
                 <a class="project-logo" href="https://themisinformationgame.github.io">
-                    <img src="assets/misinformation-game.png" alt="The Misinformation Game Logo" />
+                    <img src="/assets/misinformation-game.png" alt="The Misinformation Game Logo" />
                 </a>
 
                 I was a part of creating, and I continue to maintain,
@@ -203,7 +121,7 @@
         <li>
             <div class="project">
                 <a class="project-logo" href="https://github.com/TycheLibrary/Tyche">
-                    <img src="assets/tyche.png" alt="Tyche Logo"
+                    <img src="/assets/tyche.png" alt="Tyche Logo"
                          width="256" height="231" />
                 </a>
 
@@ -224,7 +142,7 @@
         <li>
             <div class="project">
                 <a class="project-logo" href="https://github.com/PubMedConnections/PubMedConnections">
-                    <img src="assets/pmc.svg" alt="PubMed Connections Logo"
+                    <img src="/assets/pmc.svg" alt="PubMed Connections Logo"
                          width="16" height="16" />
                 </a>
 
