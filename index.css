@@ -7,15 +7,23 @@ html, body {
 
 #content {
     display: block;
+    box-sizing: border-box;
     width: 100%;
-    max-width: 760px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 20em;
     padding: 1em;
-    box-sizing: border-box;
+    font-family: "Noto Sans", "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.6em;
 }
 
+#bio {
+    justify-content: center;
+    max-width: 580px;
+    margin: 0 auto;
+    font-family: serif;
+}
 #bio, .small-bio {
     display: flex;
     flex-direction: row;
@@ -23,11 +31,6 @@ html, body {
     row-gap: 1em;
     column-gap: 1em;
     box-sizing: border-box;
-}
-#bio {
-    justify-content: center;
-    max-width: 580px;
-    margin: 0 auto;
 }
 .small-bio {
     justify-content: flex-start;
@@ -91,7 +94,7 @@ p.paper-authors {
 h1, h2 {
     color: #333333;
     font-weight: normal;
-    margin-top: 0;
+    margin-top: 0.8em;
     margin-bottom: 0.5em;
 }
 h1 {
@@ -100,14 +103,19 @@ h1 {
 }
 h2 {
     font-size: 1.6rem;
+    text-decoration: underline;
 }
-.home h2 {
+#bio h1 {
+    margin-top: 0.6em;
+}
+#bio h2 {
     color: #888888;
     font-weight: normal;
     font-style: italic;
     font-size: 1.4em;
     margin-top: 0;
     margin-bottom: 1em;
+    text-decoration: none;
 }
 .small-bio h2 {
     margin-bottom: 0.2em;
@@ -116,16 +124,16 @@ h2 {
     margin-top: 0;
 }
 
-p {
-    line-height: 1.6em;
-}
 .italic {
     font-style: italic;
 }
 .bold {
     font-weight: bold;
 }
-li {
+ul li {
+    margin-bottom: 0.4em;
+}
+ul.sparse-ul li {
     margin-bottom: 1.4em;
 }
 p.wip {
@@ -137,7 +145,7 @@ p.wip {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.paper-year {
+.date {
     font-weight: bold;
 }
 
