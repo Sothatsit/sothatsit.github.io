@@ -91,24 +91,28 @@ p.paper-authors {
     color: #333333;
 }
 
-h1, h2 {
+h1, h2, .bio_hi, .bio_desc {
     color: #333333;
     font-weight: normal;
     margin-top: 0.8em;
     margin-bottom: 0.5em;
 }
-h1 {
+h1, .bio_hi {
     font-size: 1.8rem;
     letter-spacing: 0.015em;
 }
-h2 {
+h2, .bio_desc {
     font-size: 1.6rem;
     text-decoration: underline;
 }
-#bio h1 {
+#bio .bio_hi {
     margin-top: 0.6em;
+    text-decoration: none;
 }
-#bio h2 {
+#bio a.bio_hi:hover {
+    text-decoration: underline;
+}
+#bio .bio_desc {
     color: #888888;
     font-weight: normal;
     font-style: italic;

@@ -4,14 +4,14 @@
     <title>Padraig X. Lamont</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <meta name="description" content="I'm the creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases. My aim is always to build projects that people care about!" />
+    <meta name="description" content="I'm the creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases!" />
     <meta property="og:title" content="Padraig X. Lamont" />
-    <meta property="og:description" content="I'm the creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases. My aim is always to build projects that people care about!" />
-    <meta property="og:image" content="https://paddy-lamont.com/assets/me.png" />
-    <meta property="og:url" content="https://paddy-lamont.com" />
+    <meta property="og:description" content="I'm the creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases!" />
+    <meta property="og:image" content="https://padraiglamont.com/assets/me.png" />
+    <meta property="og:url" content="https://padraiglamont.com" />
     <meta name="twitter:title" content="Padraig X. Lamont" />
-    <meta name="twitter:description" content="I'm the creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases. My aim is always to build projects that people care about!" />
-    <meta name="twitter:url" content="https://paddy-lamont.com/assets/me.png" />
+    <meta name="twitter:description" content="I'm the creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases!" />
+    <meta name="twitter:url" content="https://padraiglamont.com/assets/me.png" />
     <meta name="twitter:card" content="summary" />
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -23,11 +23,11 @@
             "@type": "Person",
             "name": "Padraig X. Lamont",
             "alternateName": "Paddy Lamont",
-            "description": "The creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases. Their aim is always to build projects that people care about!",
-            "url": "https://paddy-lamont.com",
-            "logo": "https://paddy-lamont.com/assets/me.png",
-            "photo": "https://paddy-lamont.com/assets/me.png",
-            "image": "https://paddy-lamont.com/assets/me.png",
+            "description": "The creator of RoyalUr.net, MisinfoGame.com, and other open-source projects related to logic and knowledge bases!",
+            "url": "https://padraiglamont.com",
+            "logo": "https://padraiglamont.com/assets/me.png",
+            "photo": "https://padraiglamont.com/assets/me.png",
+            "image": "https://padraiglamont.com/assets/me.png",
             "jobTitle": "Software Engineer",
             "nationality": "Australian"
         }
@@ -47,17 +47,14 @@
 <body>
 <div id="content" class="home">
     <div id="bio">
-        <div class="left">
+        <a href="/" class="left">
             <img id="photo-of-me" src="/assets/me.png" alt="Picture of me"
                  width="530" height="530" />
-        </div>
+        </a>
         <div class="right">
-            <h1>Hi, I'm Padraig Lamont</h1>
-            <h2>I've always enjoyed programming, and so I tend to do it a lot.</h2>
+            <h1 class="bio_hi">Hi, I'm Padraig Lamont</h1>
+            <p class="bio_desc">I've always enjoyed programming, and so I tend to do it a lot.</p>
             <div id="links">
-                <a rel="me" href="https://sigmoid.social/@paddy">
-                    <img src="/assets/mastodon.svg" alt="Mastodon Icon" />
-                </a>
                 <a rel="me" href="https://twitter.com/paddy_lamont">
                     <img src="/assets/twitter.svg" alt="Twitter Icon" />
                 </a>
@@ -72,9 +69,15 @@
     </div>
 
     <p>
-        I am passionate about building high-quality and impactful software projects
-        in diverse areas. I fail a lot, but some articles, projects and papers that
-        I'm proud of are listed below!
+        I am passionate about building high-quality and impactful software projects.
+        I've worked on many projects that will never see the light of day again,
+        but some articles, projects and papers that I'm proud of are listed below!
+    </p>
+
+    <h2 id="now">What am I doing now?</h2>
+    <p>
+        Right now I am on a singular mission to make <a href="https://royalur.net">RoyalUr.net</a>
+        into the best possible place to play the Royal Game of Ur online!
     </p>
 
     <h2 id="projects">Projects</h2>
@@ -87,11 +90,12 @@
                 </a>
 
                 I created <a href="https://royalur.net">RoyalUr.net</a>, a website where
-                over 500 people each day play the Royal Game of Ur. The Royal Game of Ur
-                is an ancient Mesopotamian racing board game, that dates back to 2500BC.
-                It is considered to be a predecessor to Backgammon. As of writing, there
-                are about 400 games played every day on RoyalUr.net. This project is also
-                <a href="https://github.com/Sothatsit/RoyalUrClient">open-source</a>.
+                you can play one of the oldest board games in the world, the Royal Game
+                of Ur. I also
+                <a href="https://doi.org/10.2478/bgs-2023-0001">wrote a paper on the game</a>,
+                and have recently managed to solve the game (although that's not released as of writing).
+                The Royal Game of Ur is an ancient Mesopotamian racing board game
+                that dates back to 2500BC. It is considered to be a predecessor to Backgammon.
             </div>
         </li>
 
@@ -102,11 +106,11 @@
                 </a>
 
                 I was a part of creating, and I continue to maintain,
-                <a href="https://themisinformationgame.github.io">The Misinformation Game</a>,
+                <a href="https://misinfogame.com">The Misinformation Game</a>,
                 a social media simulator built to study people's behaviour when they
                 interact with social media. A <a href="https://doi.org/10.3758/s13428-023-02153-x">paper</a>
-                about this tool is currently under revision for the Behavior Research Methods
-                journal. This project is also
+                about this tool has been published in the Behavior Research Methods journal.
+                This project is also
                 <a href="https://github.com/TheMisinformationGame/MisinformationGame">open-source</a>.
             </div>
         </li>
@@ -167,18 +171,7 @@
         </li>
         <li>
             <p class="paper-name">
-                <span class="date">August, 2022:</span>
-                <a href="https://doi.org/10.1007/978-3-031-22695-3_27">
-                    Tyche: A library for probabilistic reasoning and belief modelling in Python
-                </a>
-            </p>
-            <p class="paper-authors">
-                Padraig X. Lamont
-            </p>
-        </li>
-        <li>
-            <p class="paper-name">
-                <span class="date">July, 2022:</span>
+                <span class="date">July, 2023:</span>
                 <a href="https://doi.org/10.3758/s13428-023-02153-x">
                     The (Mis)Information Game: A social media simulator
                 </a>
@@ -187,6 +180,17 @@
                 Lucy H. Butler, Padraig X. Lamont, Dean B. Law Yim Wan,
                 Toby Prike, Mehwish Nasim, Bradley Walker, Nicolas Fay,
                 & Ullrich K. H. Ecker
+            </p>
+        </li>
+        <li>
+            <p class="paper-name">
+                <span class="date">August, 2022:</span>
+                <a href="https://doi.org/10.1007/978-3-031-22695-3_27">
+                    Tyche: A library for probabilistic reasoning and belief modelling in Python
+                </a>
+            </p>
+            <p class="paper-authors">
+                Padraig X. Lamont
             </p>
         </li>
     </ul>
