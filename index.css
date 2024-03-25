@@ -191,3 +191,15 @@ p.wip {
     border-top: 1px solid #333333;
     padding: 1em;
 }
+
+.derek {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.derek img {
+    width: auto;
+    height: 100%;
+    max-height: 200px;
+}
