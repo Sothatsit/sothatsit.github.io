@@ -149,6 +149,10 @@ p.wip {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.last_updated {
+    font-style: italic;
+}
+
 .date {
     font-weight: bold;
 }
