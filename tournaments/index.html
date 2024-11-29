@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Round-Robin Tournament Organizer</title>
+    <link rel="stylesheet" href="/tournaments/styles.css">
+</head>
+<body>
+<div class="container">
+<h1>Round-Robin Tournament Organizer</h1>
+<p>
+    This is a tool to help with the organisation of tournaments
+    for the Royal Game of Ur. You enter the players, and it generates
+    what game match-ups people should play. You can also remove
+    players during the tournament, and it will figure out match-ups
+    while trying to minimise double-ups.
+</p>
+
+<h2>Add Players</h2>
+<div id="input-section">
+    <input type="text" id="player-name" placeholder="Enter player name">
+    <button id="add-player">Add Player</button>
+</div>
+
+<h2>Current Players</h2>
+<div id="player-list">
+    <ul id="players"></ul>
+</div>
+
+
+<div id="controls">
+    <button id="generate-matchups">Generate Match-ups</button>
+    <button id="reset-tournament">Reset Tournament</button>
+</div>
+
+
+<h2>Match-ups</h2>
+<div id="matchups">
+    <!-- Match-ups for each game will be displayed here -->
+</div>
+
+<script src="/tournaments/script.js"></script>
+</div>
+</body>
+</html>

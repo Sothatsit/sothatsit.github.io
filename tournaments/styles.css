@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#input-section, #player-list, #controls, #matchups {
+    margin-bottom: 30px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+button {
+    margin-top: 10px;
+}
+
+#players li {
+    list-style-type: none;
+    margin: 5px 0;
+}
+
+.remove-player {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+}
