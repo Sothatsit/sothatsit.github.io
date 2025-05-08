@@ -83,10 +83,10 @@ html, body {
     height: 4em;
 }
 
-p.paper-name {
+p.paper-name, p.article-name {
     margin-bottom: 0.4em;
 }
-p.paper-authors {
+p.paper-authors, p.article-desc {
     margin-top: 0;
     color: #333333;
 }
